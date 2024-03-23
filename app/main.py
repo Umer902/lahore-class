@@ -1,8 +1,9 @@
-from fastapi import FastAPI
-from sqlalchemy import engine_from_config
-from sqlmodel import SQLModel, Field, create_engine, Session
-from app import settings
 from contextlib import asynccontextmanager
+from app import settings
+from sqlalchemy import engine_from_config
+from sqlmodel import SQLModel, Field, create_engine, Session,select
+
+from fastapi import FastAPI
 
 
 class ToDo(SQLModel, table=True):
@@ -46,15 +47,13 @@ def read_root():
 
 
 # # 1. cREAT TODOS
-# @app.post("/todo")
-# def creat_todo(todo_contect:ToDo)
-#     with Session(engine_from_config)as session:
-#         session.add(todo_content)
-#         session/commit()
-        
-        
-#         session.refresh(todo_contect)
-        
+@app.post("/todos")
+def creat_todo(todo_contect:ToDo)
+    with Session(engine_from_config)as session:
+        session.add(todo_content)
+        session/commit()        
+        session.refresh(todo_contect)
+        return todo_contect
 
 
 
