@@ -47,13 +47,13 @@ def read_root():
 
 
 # # 1. cREAT TODOS
-@app.post("/todos")
-def creat_todo(todo_contect:ToDo)
-    with Session(engine_from_config)as session:
-        session.add(todo_content)
-        session/commit()        
-        session.refresh(todo_contect)
-        return todo_contect
+# @app.post("/todos")
+# def creat_todo(todo_contect:ToDo)
+#     with Session(engine_from_config)as session:
+#         session.add(todo_content)
+#         session/commit()        
+#         session.refresh(todo_contect)
+#         return todo_contect
 
 
 
